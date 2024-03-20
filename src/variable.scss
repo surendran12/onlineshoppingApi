@@ -1,0 +1,65 @@
+$primary-color: #ffffff;
+$secondary-color: #000000;
+$border-gray: #cccccc;
+$border-radius: 4px;
+$color-gray: #6b7280;
+$color-darkgray: #454a53;
+$color-link: #0f4fce;
+$button-bg: #1f2937;
+
+
+$screen-big1599: 1599px;
+$screen-big1399: 1399px;
+$screen-big1199: 1199px;
+$screen-big1023: 1023px;
+$screen-big991: 991px;
+$screen-big767: 767px;
+$screen-big575: 575px;
+$screen-big800: 800px;
+$screen-big700: 700px;
+$screen-big600: 600px;
+
+
+@mixin big1 {
+    @media (max-width: #{$screen-big1599}) {
+      @content;
+    }
+  }
+
+  @mixin big2 {
+    @media (max-width: #{$screen-big1399}) {
+      @content;
+    }
+  }
+
+  @mixin big3 {
+    @media (max-width: #{$screen-big1199}) {
+      @content;
+    }
+  }
+
+  @mixin big4 {
+    @media (max-width: #{$screen-big1023}) {
+      @content;
+    }
+  }
+
+  @mixin big5 {
+    @media (max-width: #{$screen-big991}) {
+      @content;
+    }
+  }
+
+  @mixin big6 {
+    @media (max-width: #{$screen-big767}) {
+      @content;
+    }
+  }
+
+  @mixin big7 {
+    @media (max-width: #{$screen-big575}) {
+      @content;
+    }
+  }
+
+

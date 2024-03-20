@@ -1,0 +1,468 @@
+
+@import './variable.scss';
+
+.App {
+  text-align: center;
+}
+h3 {
+   font-weight: 600;
+   font-size: 2rem;
+   color: #ffffff;
+   margin-bottom: 0;
+}
+.container {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+  @include big5 {
+    margin: 0;
+    padding: 0;
+  }
+
+}
+
+.header {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 80px;
+  justify-content: space-between;
+  background-color: $primary-color;
+  @include big5 {
+    display: block;
+    flex-direction: row-reverse;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    height: 65px;
+  }
+  .headerLeft {
+    display: flex;
+    gap: 50px;
+    @include big5 {
+      display: grid;
+    }
+    .logo {
+      max-width: 120px;
+      @include big5 {
+        margin: 0 auto;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .searchbar {
+      position: relative;
+      display: inline-block;
+      .searchInput {
+        padding: 8px 30px 8px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        min-width: 30em;
+        &::placeholder {
+          color: $color-gray;
+        }
+        @include big3 {
+          width: 28em;
+        }
+        @include big5 {
+          width: 100%;
+          margin: 0 auto;
+        }
+      }
+      .searchIcon {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #888;
+        &:hover {
+          color: #555;
+        }
+      }
+      .closeIcon {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 6px;
+      }
+    }
+  }
+  .headerRight {
+    nav {
+      @include big5 {
+        display: none;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        @include big3 {
+          gap: 15px;
+        }
+        li {
+          a {
+              text-decoration: none;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              color: $color-gray;
+              white-space: nowrap;
+              line-height: 45px;
+              span {
+                img {
+                  margin-top: -6px;
+                }
+              }
+          }
+        }
+      }
+    }
+  }
+
+  .collapsemenu {
+    display: none;
+    @include big5 {
+      display: grid;
+      position: absolute;
+      top: 16px;
+    }
+    img {
+      display: none;
+      width: 24px;
+      height: 24px;
+      @include big5 {
+        display: block;
+      }
+    }
+  }
+}
+
+
+.cartLayout {
+  padding: 0 16px;
+  .headerinfo {
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(to right, #3b3b3b 40%, #e1615a 100%);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: left;
+    p{
+      margin-bottom: 0;
+      color: #ffffff;
+      font-size: 1rem;
+    }
+    span {
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+  }
+
+  .section {
+    width: 100%;
+    text-align: left;
+    @include big5 {
+      padding: 50px 0 0;
+    }
+
+    .searchList {
+      width: 100%;
+      margin: 24px 0;
+      form {
+        display: block;
+          @include big5 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+          }
+      }
+      .form-label {
+        display: none;
+        @include big6 {
+          display: block;
+          font-weight: 600;
+          white-space: nowrap;
+        }
+
+      }
+     .form-select {
+       max-width: 400px;
+       box-shadow: none;
+       overflow-y: auto;
+     }
+    }
+    .productlist {
+      margin: 0 0 24px;
+      text-align: left;
+      border: 1px solid $border-gray;
+      border-radius: $border-radius;
+      &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+      }
+      .productimg {
+        position: relative;
+        img {
+          width: 100%;
+          height: 180px;
+          max-height: 180px;
+          @include big5 {
+            height: 150px;
+            max-height: 150px;
+          }
+        }
+        .productlike {
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          padding: 5px;
+          border-radius: $border-radius;
+          background-color: $secondary-color;
+          opacity: 0.5;
+          img {
+            width: 26px;
+            height: 26px;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+
+      .info {
+        padding: 16px;
+        height: 200px;
+        h4 {
+          font-weight: 600;
+          font-size: 1.2rem;
+          height: 40px;
+        }
+        p {
+          font-size: 0.8rem;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          height: 40px;
+        }
+      }
+      .rating {
+        font-size: 24px;
+        cursor: pointer;
+        .star {
+          color: #ffca28;
+          &:hover {
+            color: gold;
+          }
+          &.active {
+            color: #ffca28;
+          }
+        }
+      }
+    }
+    .mobilelist {
+      @include big5 {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .gridview {
+    @include big5 {
+      width: 50%;
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  padding: 30px 0 0;
+  display: flex;
+  gap: 50px;
+  text-align: left;
+  @include big5 {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 16px 16px;
+    gap: 0px;
+  }
+  .view {
+    width: 50%;
+    @include big5 {
+      width: 100%;
+    }
+    .signin {
+      margin: 30px 0 8px;
+    }
+    .email {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      @include big5 {
+        display: grid;
+      }
+      input {
+        height: 40px;
+        width: 80%;
+        text-indent: 5px;
+        @include big5 {
+          width: 100%;
+        }
+      }
+      button {
+        border-radius: 0;
+        color: $primary-color;
+        background-color: $button-bg;
+        text-transform: uppercase;
+        border: 1px solid $secondary-color;
+        @include big5 {
+          width: 100%;
+        }
+      }
+  }
+  .companyinfo {
+    display: flex;
+    @include big5 {
+      display: none;
+    }
+  }
+  .copyRight {
+    margin: 40px 0 8px;
+    width: 90%;
+    @include big5 {
+      margin: 0;
+      width: 100%;
+    }
+    ul {
+      li {
+        text-decoration: underline;
+        float: left;
+        padding: 0 18px 0 0;
+        width: 172px;
+        white-space: nowrap;
+        @include big5 {
+          width: auto;
+        }
+      }
+    }
+  }
+  p {
+    font-size: 0.9rem;
+    color: $color-gray;
+    @include big5 {
+      text-align: center;
+      max-width: 30em;
+      margin: 0 auto 30px;
+    }
+    span {
+      text-transform: uppercase;
+    }
+    a {
+      text-decoration: underline;
+      color: $color-link;
+      &:hover {
+        text-decoration: underline;
+        color: $color-link;
+        cursor: pointer;
+      }
+    }
+  }
+  .carddetails {
+    margin: 15px 0 0;
+    width: 90%;
+    @include big5 {
+      display: none;
+    }
+    ul {
+    list-style: none;
+    li {
+      display: flex;
+      width: auto;
+      float: left;
+    }
+    }
+  }
+  }
+  h5 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      font-size: 0.9rem;
+      line-height: 2;
+      color: $color-gray;
+      &:hover {
+        color: $color-darkgray;
+        cursor: pointer;
+      }
+      span {
+        margin: 0 5px;
+      }
+    }
+  }
+}
+.social {
+  width: auto;
+}
+.platform {
+ text-align: right;
+ padding-right: 24px;
+}
+.pagination {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  @include big5 {
+    justify-content: center;
+    padding: 16px 0;
+  }
+  li {
+    margin: 0 5px;
+    a {
+      text-decoration: none;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      color: #333;
+      border-radius: 3px;
+      box-shadow: none;
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+    &:first-child {
+      display: none;
+    }
+    &:last-child {
+      display: none;
+    }
+    &.active {
+      .page-link {
+        background-color: $button-bg;
+        border: 1px solid $button-bg;
+      }
+    }
+  }
+  li.active a {
+    background-color: #007bff;
+    color: #fff;
+  }
+}
